@@ -12,8 +12,8 @@ import pandas as pd
 import numpy as np
 
 # ── Configuration ──────────────────────────────────────────────────
-INPUT_PATH = "loan-10k.lrn.csv"
-OUTPUT_PATH = "loan_cleaned.csv"
+INPUT_PATH = "../data/raw/loan-10k.lrn.csv"
+OUTPUT_PATH = "../data/processed/loan_cleaned.csv"
 
 # Columns to keep for Tableau visualization
 KEEP_COLUMNS = [
@@ -189,4 +189,4 @@ if __name__ == "__main__":
     print("\n" + "=" * 70)
     print("PREPROCESSING COMPLETE")
     print("=" * 70)
-    print(f"\n→ Load '{OUTPUT_PATH}' into Tableau Public to start building your dashboard.")
+    print(f"\n→ Load 'data/processed/loan_cleaned.csv' into Tableau Public to start building your dashboard.")

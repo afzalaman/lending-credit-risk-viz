@@ -55,7 +55,7 @@ const fmt = {
 
 // ── Data Loading ────────────────────────────────────────────────
 async function loadData() {
-    allData = await d3.csv('loan_cleaned.csv', d => ({
+    allData = await d3.csv('data/processed/loan_cleaned.csv', d => ({
         id: +d.ID,
         loanAmnt: +d.loan_amnt,
         term: d.term,

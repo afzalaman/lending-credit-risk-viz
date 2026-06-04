@@ -24,23 +24,28 @@ This project investigates what drives LendingClub's loan grading system (A–G) 
 
 ```
 lending-credit-risk-viz/
-├── README.md                  ← You are here
-├── Loan_Project_Proposal_Group4.pdf  ← Original project proposal
 │
-├── loan-10k.lrn.csv          ← Raw learning set (10,000 rows × 92 cols, with grade labels)
-├── loan-10k.tes.csv           ← Raw test set (no labels)
-├── loan-10k.sol.ex.csv        ← Solution format example (ID + grade)
+├── README.md
 │
-├── eda.py                     ← Exploratory Data Analysis script
-├── preprocess.py              ← Data cleaning & feature engineering
-├── loan_cleaned.csv           ← Cleaned dataset (10,000 rows × 38 cols)
+├── data/
+│   ├── raw/                           ← Original dataset files
+│   │   ├── loan-10k.lrn.csv          (10,000 rows × 92 cols, with grade labels)
+│   │   ├── loan-10k.tes.csv          (10,000 rows, no labels)
+│   │   └── loan-10k.sol.ex.csv       (solution format example)
+│   └── processed/
+│       └── loan_cleaned.csv           ← Cleaned & enriched (10,000 rows × 38 cols)
 │
-├── index.html                 ← D3.js interactive dashboard (entry point)
+├── scripts/
+│   ├── eda.py                         ← Exploratory Data Analysis
+│   └── preprocess.py                  ← Data cleaning & feature engineering
+│
+├── index.html                         ← D3.js dashboard (entry point)
 ├── dashboard/
-│   ├── index.css              ← Dashboard styles (dark glassmorphism theme)
-│   └── app.js                 ← D3.js visualization logic (8 linked charts)
+│   ├── index.css                      ← Dashboard styles (dark theme)
+│   └── app.js                         ← D3.js visualization logic (8 charts)
 │
-└── .git/
+└── docs/
+    └── Loan_Project_Proposal_Group4.pdf
 ```
 
 ---
@@ -49,9 +54,7 @@ lending-credit-risk-viz/
 
 ### Prerequisites
 
-- **Python 3.8+** with the following packages:
-  - `pandas`
-  - `numpy`
+- **Python 3.8+** with `pandas` and `numpy`
 - **Tableau Public** (free) — [Download here](https://public.tableau.com/en-us/s/download)
 
 ### Install Python Dependencies
@@ -63,6 +66,7 @@ pip install pandas numpy
 ### Step 1: Run Exploratory Data Analysis
 
 ```bash
+cd scripts
 python3 eda.py
 ```
 
@@ -77,10 +81,11 @@ This prints a comprehensive summary to the console:
 ### Step 2: Run Data Preprocessing
 
 ```bash
+cd scripts
 python3 preprocess.py
 ```
 
-This reads `loan-10k.lrn.csv` and outputs `loan_cleaned.csv` with:
+This reads `data/raw/loan-10k.lrn.csv` and outputs `data/processed/loan_cleaned.csv` with:
 - **33 selected columns** from the original 92 (focused on visualization-relevant features)
 - **5 derived features**: `term_months`, `emp_length_num`, `credit_age`, `grade_numeric`, `fico_score`
 - **Capped outliers**: `annual_inc` ≤ $300K, `dti` ≤ 50, `revol_bal` ≤ $100K
@@ -89,7 +94,7 @@ This reads `loan-10k.lrn.csv` and outputs `loan_cleaned.csv` with:
 ### Step 3: Load into Tableau Public
 
 1. Open **Tableau Public**
-2. Connect to **Text file** → select `loan_cleaned.csv`
+2. Connect to **Text file** → select `data/processed/loan_cleaned.csv`
 3. Build dashboard sheets (see Tableau Dashboard Design below)
 
 ### Step 4: Run D3.js Interactive Dashboard (Alternative)
@@ -97,7 +102,7 @@ This reads `loan-10k.lrn.csv` and outputs `loan_cleaned.csv` with:
 In addition to Tableau, there is a fully interactive D3.js web dashboard:
 
 ```bash
-# Start a local server (required for CSV loading)
+# From the project root directory:
 python3 -m http.server 8080
 ```
 

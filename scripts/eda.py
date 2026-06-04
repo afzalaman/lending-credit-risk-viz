@@ -13,7 +13,7 @@ import pandas as pd
 import numpy as np
 
 # ── Configuration ──────────────────────────────────────────────────
-DATA_PATH = "loan-10k.lrn.csv"
+DATA_PATH = "../data/raw/loan-10k.lrn.csv"
 
 KEY_NUMERICAL = [
     "int_rate", "dti", "fico_range_low", "fico_range_high",
