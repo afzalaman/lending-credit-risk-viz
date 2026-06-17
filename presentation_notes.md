@@ -5,7 +5,7 @@
 
 ## Slide 1 — Title *(~15 sec)*
 
-> "Hi everyone, our project is called **'Who Gets the Best Loan?'** We analyzed LendingClub's loan grading system to understand what separates a safe Grade-A borrower from a risky Grade-G one. My name is Afzal, and I worked on this with Hasudin and Kurato."
+> "Hi everyone, our project is called **'Who Gets the Best Loan?'** We analyzed LendingClub's loan grading system to understand what separates a safe Grade-A borrower from a risky Grade-G one."
 
 ---
 
@@ -28,17 +28,6 @@
 > **H2** — We thought that loans taken for **small businesses** would tend to get lower grades, because small business is riskier.
 >
 > **H3** — We hypothesized that **riskier grades D through G grew after 2015**, suggesting that LendingClub loosened their criteria over time."
-
----
-
-## Slide 4 — Dashboard Screenshot *(~30 sec)*
-
-> "This is our interactive dashboard, built with **D3.js**. It has **8 linked charts** — all cross-filtered. You can see the grade distribution, interest rate box plots, a FICO vs. DTI scatter plot, a US choropleth map, and more.
->
-> The dark glassmorphism design was chosen for readability with dense financial data."
-
-> [!TIP]
-> Point at specific charts on screen while talking. If possible, have the live dashboard open on localhost:8080 to quickly show a filter interaction.
 
 ---
 
